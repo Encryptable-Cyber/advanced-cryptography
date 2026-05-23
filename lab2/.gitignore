@@ -1,0 +1,40 @@
+# =========================
+# Sensitive Files
+# =========================
+
+# Private keys
+private.pem
+*.key
+
+# Signature files
+*.sig
+
+# =========================
+# Binary / Collision Files
+# =========================
+
+*.bin
+
+# =========================
+# Python Cache
+# =========================
+
+__pycache__/
+*.pyc
+
+# =========================
+# Temporary / Backup Files
+# =========================
+
+*.tmp
+*.swp
+*.bak
+*.old
+*.backup
+
+# =========================
+# OS / Editor Files
+# =========================
+
+.DS_Store
+Thumbs.db
