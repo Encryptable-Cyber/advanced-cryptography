@@ -1,11 +1,11 @@
 # Lab 4: Cryptanalysis and Attacks - Man-in-the-Middle (MITM) & Session Hijacking
 
-## Complete Laboratory Report
+## Complete Laboratory Report (Updated - No Screenshot Placeholders)
 
 **Course:** Advanced Cryptography (CYBE6229)  
 **Date Completed:** May 25, 2026  
 **Environment:** VirtualBox (Kali Linux + Ubuntu Server 24.04)  
-**Author:** [Your Name]
+**Author:** Tchoffouo Djimyr Hassan
 
 ---
 
@@ -310,8 +310,6 @@ user=httpuser&pass=httppassword123
 
 **Analysis:** The credentials are transmitted in PLAIN TEXT. Any attacker on the network can see them.
 
-[Insert Screenshot: Bettercap showing HTTP POST with visible credentials]
-
 ---
 
 ### Part 2: Session Hijacking
@@ -325,8 +323,6 @@ Set-Cookie: sessionid=4fe8b4b5-2b9e-4dba-b058-17529c0dbd41; Path=/; HttpOnly
 ```
 
 **Session Cookie Captured:** `sessionid=4fe8b4b5-2b9e-4dba-b058-17529c0dbd41`
-
-[Insert Screenshot: curl response showing Set-Cookie header]
 
 ---
 
@@ -350,8 +346,6 @@ curl -H "Cookie: sessionid=4fe8b4b5-2b9e-4dba-b058-17529c0dbd41" http://192.168.
 ```
 
 **Security Relevance:** The server authenticated the request using ONLY the session cookie. No username or password was required. This proves that session hijacking allows complete impersonation of any authenticated user.
-
-[Insert Screenshot: Dashboard access using stolen cookie (no credentials)]
 
 ---
 
@@ -385,8 +379,6 @@ Generating a RSA private key
 writing new private key to 'key.pem'
 -----
 ```
-
-[Insert Screenshot: OpenSSL certificate generation]
 
 ---
 
@@ -431,8 +423,6 @@ E..8..@.8..|........e... ...P...u...m.....
 ```
 **Result:** Only random bytes visible - credentials HIDDEN.
 
-[Insert Screenshot: tcpdump showing HTTP credentials vs HTTPS encrypted data]
-
 ---
 
 ### Part 4: Detection and Prevention
@@ -446,8 +436,6 @@ sudo arpwatch -i eth1
 ```
 
 **Purpose:** Monitors ARP traffic and logs changes in MAC-IP mappings.
-
-[Insert Screenshot: arpwatch installation and startup]
 
 ---
 
@@ -464,8 +452,6 @@ arp -a | grep -v incomplete
 ? (192.168.1.32) at 08:00:27:fc:0e:17 [ether] on eth1
 ? (192.168.1.67) at 08:00:27:b1:78:2d [ether] on eth1
 ```
-
-[Insert Screenshot: ARP cache showing all devices]
 
 ---
 
@@ -486,8 +472,6 @@ echo "Static ARP entry set. ARP spoofing prevented."
 - `arp -s` - Add static ARP entry (cannot be overwritten)
 - `$GATEWAY_IP` - Gateway IP address
 - `$GATEWAY_MAC` - Gateway MAC address
-
-[Insert Screenshot: Anti-ARP spoof script content]
 
 ---
 
@@ -518,8 +502,6 @@ arp -a | grep 192.168.1.1
 ```
 
 **Note the `PERM` flag** - this indicates a permanent/static entry that cannot be changed by ARP spoofing.
-
-[Insert Screenshot: ARP entry showing PERM flag]
 
 ---
 
@@ -767,12 +749,12 @@ sudo arp -s 192.168.1.1 74:24:9f:67:c9:14
 
 ### Vulnerabilities Identified
 
-| Vulnerability | Severity | Affected Component | CVSS Score (Estimate) |
-|---------------|----------|--------------------|----------------------|
-| Plaintext credential transmission | Critical | HTTP web server | 9.1 (CVSS:3.1) |
-| Session cookie exposure | Critical | HTTP session management | 8.8 |
-| ARP spoofing susceptibility | High | Network layer | 7.4 |
-| No HSTS implementation | Medium | Web application | 5.3 |
+| Vulnerability | Severity | Affected Component |
+|---------------|----------|--------------------|
+| Plaintext credential transmission | Critical | HTTP web server |
+| Session cookie exposure | Critical | HTTP session management |
+| ARP spoofing susceptibility | High | Network layer |
+| No HSTS implementation | Medium | Web application |
 
 ### Attack Vectors
 
@@ -809,6 +791,7 @@ sudo arp -s 192.168.1.1 74:24:9f:67:c9:14
 - [ ] Use 802.1X port security
 - [ ] Regular vulnerability scanning
 
+---
 
 ## Lessons Learned
 
@@ -929,9 +912,5 @@ Understanding these attack vectors is essential for any cybersecurity profession
 6. **Tools GitHub Repositories:**
    - Bettercap: https://github.com/bettercap/bettercap
    - Ettercap: https://github.com/Ettercap/ettercap
-
----
-
-**End of Lab 4 Report**
 
 ---
