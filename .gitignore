@@ -1,2 +1,5 @@
 *.key
-ta.key
+*.pem
+*.p12
+*.pfx
+*.csr
